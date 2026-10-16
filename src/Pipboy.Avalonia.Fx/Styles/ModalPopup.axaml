@@ -1,0 +1,45 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:pipboy="https://github.com/NeverMorewd/Pipboy.Avalonia">
+    <Styles.Resources>
+
+        <ControlTheme x:Key="{x:Type pipboy:ModalPopup}" TargetType="pipboy:ModalPopup">
+
+            <!--  The template root is bound to IsOpen: the single driver of visibility.  -->
+            <Setter Property="Template">
+                <ControlTemplate TargetType="pipboy:ModalPopup">
+
+                    <Panel IsVisible="{TemplateBinding IsOpen}">
+
+                        <!--  Backdrop. It stays background-less (therefore not hit-testable) until the :modal style below fills it in, so a non-modal popup does not block the canvas.  -->
+                        <Border Name="PART_Backdrop" />
+
+                        <!--  The inner panel owns the whole look: bracket title bar, [X] button, .accent / .warning variants, footer.  -->
+                        <pipboy:PipboyPanel
+                            Name="PART_Panel"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Footer="{TemplateBinding Footer}"
+                            Header="{TemplateBinding Header}"
+                            IsClosable="{TemplateBinding IsClosable}"
+                            MaxHeight="{TemplateBinding MaxPanelHeight}"
+                            MaxWidth="{TemplateBinding MaxPanelWidth}" />
+
+                    </Panel>
+
+                </ControlTemplate>
+            </Setter>
+
+            <!--  Modal: a near-black palette scrim. The non-null background is what makes the backdrop eat pointers.  -->
+            <Style Selector="^:modal /template/ Border#PART_Backdrop">
+                <Setter Property="Background" Value="{DynamicResource PipboyBackgroundBrush}" />
+                <Setter Property="Opacity" Value="{DynamicResource PipboyDimOpacity}" />
+            </Style>
+
+        </ControlTheme>
+
+    </Styles.Resources>
+</Styles>

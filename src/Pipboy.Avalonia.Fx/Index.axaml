@@ -9,6 +9,7 @@
 	<StyleInclude Source="avares://Pipboy.Avalonia.Fx/Styles/PipboyCountdown.axaml" />
 	<StyleInclude Source="avares://Pipboy.Avalonia.Fx/Styles/CrtDisplay.axaml" />
 	<StyleInclude Source="avares://Pipboy.Avalonia.Fx/Styles/PipboyPanel.axaml" />
+	<StyleInclude Source="avares://Pipboy.Avalonia.Fx/Styles/ModalPopup.axaml" />
 	<StyleInclude Source="avares://Pipboy.Avalonia.Fx/Styles/PipboyTitleBar.axaml" />
 	<StyleInclude Source="avares://Pipboy.Avalonia.Fx/Styles/PipboyMap.axaml" />
 </Styles>
